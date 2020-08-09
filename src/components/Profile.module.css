@@ -1,0 +1,8 @@
+.profile{
+    grid-area: m;
+  }
+  
+  .profileimg img{
+  width: 100%;
+  height: 80px;
+  }
