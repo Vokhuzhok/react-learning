@@ -12,9 +12,6 @@ const Profile = () => {
             <div>
             <MyPosts />
             </div>
-            <div>
-            <Post />
-            </div>
         </div>
     );
 }
