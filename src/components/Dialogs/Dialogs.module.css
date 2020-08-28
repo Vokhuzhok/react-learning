@@ -43,12 +43,12 @@
     max-width: 50%;
 }
 
-/*.message:before{
-    content: "";
-    position: relative;
-    border: 1px solid;
-    width: 10px;
-    height: 10px;
-    left: -20px;
-    border-radius: 50%;
-}*/
+.addMessage{
+    position: absolute;
+    bottom: 5%;
+    left: 30%;
+}
+
+.addMessage textarea{
+    width: 600px;
+}
