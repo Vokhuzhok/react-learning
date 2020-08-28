@@ -5,9 +5,9 @@ import ProfileMain from './ProfileMain/ProfileMain';
 
 const Profile = (props) => {
     return (
-        <div>
+        <div className={s.mainprofile}>
             <ProfileMain />
-            <MyPosts posts={props.posts} />
+            <MyPosts posts={props.state.posts} />
         </div>
     );
 }

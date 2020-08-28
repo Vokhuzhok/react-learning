@@ -2,7 +2,7 @@ import React from 'react';
 import s from "./Navigation.module.css";
 import { NavLink } from 'react-router-dom';
 
-const Navigation = () => {
+const Navigation = (props) => {
     return (
         <nav className={s.nav}>
             <div className={s.item}>
@@ -19,6 +19,20 @@ const Navigation = () => {
             </div>
             <div className={s.item}>
                 <NavLink to='/settings' activeClassName={s.activeLink}>Settings</NavLink>
+            </div>
+            <div className={s.friends}>
+                <NavLink to='/friends' activeClassName={s.activeFriend}>Friends</NavLink>
+            </div>
+            <div className={s.friendsAva}>
+             <div>
+                 <img src={props.state.dialogs[1].ava} />
+             </div>
+             <div>
+                <img src={props.state.dialogs[2].ava} />
+             </div>
+             <div>
+                <img src={props.state.dialogs[3].ava} />
+             </div>
             </div>
         </nav>
     );

@@ -18,10 +18,37 @@
     text-decoration: none;
 }
 
-.messages{
+.dialogsItem img {
+    height: 35px;
+    padding: 3px;
+    border-radius: 30px;
+}
 
+.messages{
+   /*display: flex;
+    flex-direction: column;*/
+    border-style: solid;
+    border-radius: 10px;
+    border-width: 1px;
 }
 
 .message{
-    padding: 15px;
+    margin-left: 20px;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 10px;
+    border-style: solid;
+    border-radius: 10px;
+    border-width: thin;
+    max-width: 50%;
 }
+
+/*.message:before{
+    content: "";
+    position: relative;
+    border: 1px solid;
+    width: 10px;
+    height: 10px;
+    left: -20px;
+    border-radius: 50%;
+}*/
