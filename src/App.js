@@ -16,13 +16,15 @@ function App(props) {
         
         <Header />
 
-        <Navigation state={props.state.dialogsPage} />
+        <Navigation dialogsPage={props.state.dialogsPage} />
 
         <div className="app-wrapper-content">
-          <Route path="/dialogs" render={() => <Dialogs state={props.state.dialogsPage} />} />
+          <Route path="/dialogs" render={() => <Dialogs dialogsPage={props.state.dialogsPage} />} />
 
-          <Route path="/profile" render={() => <Profile 
-          state={props.state.profilePage} 
+          <Route path="/profile" render={() => <Profile
+
+          profilePage={props.state.profilePage} 
+          updateNewTextPost={props.updateNewTextPost}
           addPost={props.addPost} />} />
 
           <Route path="/news" render={() => <News />} />

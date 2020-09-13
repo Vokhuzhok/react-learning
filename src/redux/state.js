@@ -1,5 +1,8 @@
+import { rerenderEntityTree } from "../render";
+
 let state = {
   profilePage: {
+    newPostText = '',
     posts: [
       { id:1, message: "How are you?", likecount: 30 },
       { id:2, message: "It`s my first post", likecount: 50 },
@@ -48,13 +51,19 @@ let state = {
     ],
   },
 };
-export let addPost = (postMessage) => {
+export let addPost = () => {
   let newPost = {
     id: 3,
-    message: postMessage,
+    message: state.profilePage.newPostText,
     likecount: 0
   };
   state.profilePage.posts.push(newPost);
+  state.profilePage.newPostText = '';
+  rerenderEntityTree(state);
 };
 
+export let updateNewTextPost = (newText) => {
+  state.profilePage.newPostPost = newText;
+  rerenderEntityTree(state);
+}
 export default state;

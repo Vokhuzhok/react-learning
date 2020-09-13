@@ -25,13 +25,13 @@ const Navigation = (props) => {
             </div>
             <div className={s.friendsAva}>
              <div>
-                 <img src={props.state.dialogs[1].ava} />
+                 <img src={props.dialogsPage.dialogs[1].ava} />
              </div>
              <div>
-                <img src={props.state.dialogs[2].ava} />
+                <img src={props.dialogsPage.dialogs[2].ava} />
              </div>
              <div>
-                <img src={props.state.dialogs[3].ava} />
+                <img src={props.dialogsPage.dialogs[3].ava} />
              </div>
             </div>
         </nav>
