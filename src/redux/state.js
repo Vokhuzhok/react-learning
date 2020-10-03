@@ -53,27 +53,38 @@ let store = {
   _callSubscriber () {
     console.log ('Yes it work')
   },
+
+  subscribe (observer) {
+    this._callSubscriber = observer;
+  },
   getState () {
     debugger;
     return this._state;
   },
+
   addPost () {
-    let newPost = {
-      id: 3,
-      message: this._state.profilePage.newPostText,
-      likecount: 0
-    };
-    this._state.profilePage.posts.push(newPost);
-    this._state.profilePage.newPostText = '';
-    this._callSubscriber(this._state);
+    
   },
   updateNewTextPost (newText) {
-    this._state.profilePage.newPostText = newText;
-    this._callSubscriber(this._state);
+   
   },
-  subscribe (observer) {
-    this._callSubscriber = observer;
+  dispatch (action) {
+    if (action.type === 'ADD-POST') {
+      let newPost = {
+        id: 3,
+        message: this._state.profilePage.newPostText,
+        likecount: 0
+      };
+      this._state.profilePage.posts.push(newPost);
+      this._state.profilePage.newPostText = '';
+      this._callSubscriber(this._state);
+    }
+    else if (action.type === 'UPDATE-NEW-TEXT-POST') {
+      this._state.profilePage.newPostText = action.newText;
+      this._callSubscriber(this._state);
+    }
   }
+  
 };
 
 export default store;

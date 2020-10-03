@@ -9,8 +9,7 @@ let rerenderEntityTree = (state) => {
     ReactDOM.render(
       <React.StrictMode>
         <App state={state}
-        addPost={store.addPost.bind(store)} 
-        updateNewTextPost={store.updateNewTextPost.bind(store)} />
+             dispatch = {store.dispatch.bind(store)} />
       </React.StrictMode>,
       document.getElementById("root")
     );
