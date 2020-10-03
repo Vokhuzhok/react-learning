@@ -23,7 +23,7 @@ const Navigation = (props) => {
             <div className={s.friends}>
                 <NavLink to='/friends' activeClassName={s.activeFriend}>Friends</NavLink>
             </div>
-            <div className={s.friendsAva}>
+             <div className={s.friendsAva}> 
              <div>
                  <img src={props.dialogsPage.dialogs[1].ava} />
              </div>
@@ -33,7 +33,7 @@ const Navigation = (props) => {
              <div>
                 <img src={props.dialogsPage.dialogs[3].ava} />
              </div>
-            </div>
+    </div>
         </nav>
     );
 }
