@@ -1,7 +1,11 @@
+import dialogsReducer from "./dialogs-reduser";
+import profileReducer from "./profile-reducer";
+
+
 let store = {
   _state: {
     profilePage: {
-      newPostText: "",
+      newText: '',
       posts: [
         { id:1, message: "How are you?", likecount: 30 },
         { id:2, message: "It`s my first post", likecount: 50 },
@@ -43,6 +47,7 @@ let store = {
           ava: "https://yt3.ggpht.com/a/AATXAJzwzRrAdErWWD7zuI-KBzY4Nma9XUotZ5UQBQ=s900-c-k-c0xffffffff-no-rj-mo",
         },
       ],
+      newMessage: '',
       messages: [
         { id: 1, message: "Hi!" },
         { id: 2, message: "How are you?" },
@@ -69,22 +74,16 @@ let store = {
    
   },
   dispatch (action) {
-    if (action.type === 'ADD-POST') {
-      let newPost = {
-        id: 3,
-        message: this._state.profilePage.newPostText,
-        likecount: 0
-      };
-      this._state.profilePage.posts.push(newPost);
-      this._state.profilePage.newPostText = '';
-      this._callSubscriber(this._state);
-    }
-    else if (action.type === 'UPDATE-NEW-TEXT-POST') {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    }
+
+    this._state.profilePage = profileReducer (this._state.profilePage, action);
+    this._state.dialogsPage = dialogsReducer (this._state.dialogsPage, action);
+    
+    this._callSubscriber(this._state);
+    
   }
   
 };
+
+
 
 export default store;
