@@ -8,7 +8,7 @@ import store from './redux/store';
 let rerenderEntityTree = (state) => {
     ReactDOM.render(
       <React.StrictMode>
-        <App state={state}
+        <App store={store}
              dispatch = {store.dispatch.bind(store)} />
       </React.StrictMode>,
       document.getElementById("root")
@@ -18,8 +18,8 @@ let rerenderEntityTree = (state) => {
 rerenderEntityTree(store.getState () );
 
 store.subscribe(() => {
-  let state = store.getState();
-  rerenderEntityTree(state);
+  // let state = store.getState();
+  rerenderEntityTree(store);
 });
 
 // If you want your app to work offline and load faster, you can change
