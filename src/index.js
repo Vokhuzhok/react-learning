@@ -2,20 +2,20 @@ import React from "react";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
-import * as serviceWorker from './serviceWorker';
-import store from './redux/store';
+import * as serviceWorker from "./serviceWorker";
+import store from "./redux/store";
+import { Provider } from "react-redux";
 
-let rerenderEntityTree = (state) => {
-    ReactDOM.render(
-      <React.StrictMode>
-        <App store={store}
-             dispatch = {store.dispatch.bind(store)} />
-      </React.StrictMode>,
-      document.getElementById("root")
-    );
-  };
+let rerenderEntityTree = () => {
+  ReactDOM.render(
+    <Provider store={store}>
+      <App />
+    </Provider>,
+    document.getElementById("root")
+  );
+};
 
-rerenderEntityTree(store.getState () );
+rerenderEntityTree(store.getState());
 
 store.subscribe(() => {
   // let state = store.getState();
