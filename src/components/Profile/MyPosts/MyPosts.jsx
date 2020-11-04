@@ -3,8 +3,7 @@ import s from "./MyPosts.module.css";
 import Post from './Post/Post';
 
 const MyPost = (props) => {
-
-    let postsElements = props.state.posts.map(p => <Post message={p.message} likecount={p.likecount} />);
+    let postsElements = props.profilePage.posts.map(p => <Post message={p.message} likecount={p.likecount} key={p.id} />);
 
     let newPostElement = React.createRef();
 
@@ -22,7 +21,7 @@ const MyPost = (props) => {
             <div>
                 <div>
                     <textarea
-                    value = {props.state.newText}
+                    value = {props.profilePage.newText}
                     onChange = {postOnChange}
                     ref={newPostElement}
                     />

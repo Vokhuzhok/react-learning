@@ -1,4 +1,3 @@
-import React from "react";
 import MyPost from "./MyPosts";
 import {
   addPostActionCreator,
