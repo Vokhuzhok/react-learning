@@ -3,17 +3,17 @@ import { connect } from "react-redux";
 import { followAC, unfollowAC } from "../../redux/users-reducer";
 
 let mapStateToProps = (state) => {
-  return { usersPage: state.usersPage };
+  return { users: state.usersPage.users };
 };
 
 let mapDispathToProps = (dispatch) => {
   return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
+    follow: (id) => {
+      dispatch(followAC(id));
     },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
+    unfollow: (id) => {
+      dispatch(unfollowAC(id));
+    }
   };
 };
 

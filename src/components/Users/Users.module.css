@@ -1,0 +1,28 @@
+.users{
+    display: grid;
+    grid-template-areas: "l c r" ;
+    grid-template-columns: 1fr 3fr 1fr;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 5px;
+    margin: 2px;
+}
+.left {
+    grid-area: l;
+}
+
+.center {
+    grid-area: c;
+}
+
+.right {
+    grid-area: r;
+
+
+}
+
+.ava img {
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+}
