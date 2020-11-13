@@ -6,14 +6,40 @@ import noUserPhoto from "../../assest/images/User.png";
 class Users extends React.Component {
   componentDidMount() {
     axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
       .then((response) => {
         this.props.setUsers(response.data.items);
+        this.props.setUsersCount(response.data.totalCount);
       });
   }
+
+  onPageChaged = (currentPage) => {
+    this.props.setPage(currentPage);
+    axios
+    .get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
+    .then((response) => {
+      this.props.setUsers(response.data.items);
+    });
+  }
+
+
   render() {
+
+    let pageCount = Math.ceil(this.props.usersCount / this.props.pageSize);
+
+    let pages = [];
+    for (let i = 1; i <= pageCount; i++) {
+      pages.push (i);
+    }
+
     return (
       <div>
+        <div className = {s.pagesNumber}>
+          {pages.map (p => {
+          return <div className = {this.props.currentPage === p && s.selectedPage}
+          onClick = {() => {this.onPageChaged (p);}} >{p}</div>
+        })}
+        </div>
         {this.props.users.map((ue) => (
           <div key={ue.id} className={s.users}>
             <div className={s.left}>

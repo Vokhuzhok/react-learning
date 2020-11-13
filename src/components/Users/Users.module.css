@@ -26,3 +26,19 @@
     width: 90px;
     height: 90px;
 }
+
+.selectedPage {
+    font-weight: bold;
+}
+
+.pagesNumber {
+    overflow:scroll;
+    width: 800px;
+    height: 50px;
+}
+
+.pagesNumber div {
+    display: inline;
+    padding: 2px;
+    cursor: default;
+}
