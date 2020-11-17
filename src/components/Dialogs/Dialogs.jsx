@@ -16,10 +16,6 @@ const Dialogs = (props) => {
         props.updateNewMessage (Mtext);
     }
 
-    let addNewMessage = () => {
-        props.addNewMessage ();
-    }
-
     return (
         <div className={s.dialogs}>
             <div className={s.dialogsItem}>
@@ -32,7 +28,7 @@ const Dialogs = (props) => {
                     value={props.dialogsPage.newMessage}
                     onChange={updateNewMessage}
                     ref={addNewMessageRef}/>
-                    <button onClick={addNewMessage}>Add Message</button>
+                    <button onClick={props.addMessage}>Add Message</button>
                 </div>
             </div>
         </div>

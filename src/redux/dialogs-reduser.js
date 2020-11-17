@@ -1,5 +1,5 @@
-const ADD_MESSAGE = "ADD-MESSAGE";
-const UPDATE_NEW_MESSAGE = "UPDATE-NEW-MESSAGE";
+const ADD_MESSAGE = "ADD_MESSAGE";
+const UPDATE_NEW_MESSAGE = "UPDATE_NEW_MESSAGE";
 
 let initialState = {
   dialogs: [
@@ -60,17 +60,14 @@ const dialogsReducer = (state = initialState, action) => {
     case UPDATE_NEW_MESSAGE:
       return {
         ...state,
-        newMessage: action.newMessage,
+        newMessage: action.Mtext,
       };
     default:
       return state;
   }
 };
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
-export const updateNewMessageActionCreator = (Mtext) => ({
-  type: UPDATE_NEW_MESSAGE,
-  newMessage: Mtext,
-});
+export const addMessage = () => ({ type: ADD_MESSAGE });
+export const updateNewMessage = (Mtext) => ({ type: UPDATE_NEW_MESSAGE, Mtext });
 
 export default dialogsReducer;
