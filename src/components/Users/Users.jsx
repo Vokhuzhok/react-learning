@@ -24,7 +24,7 @@ let Users = (props) => {
           <div key={ue.id} className={s.users}>
             <div className={s.left}>
               <div className={s.ava}>
-                <NavLink to = {'/profile' + ue.id}>
+                <NavLink to = {'profile/' + ue.id}>
                 <img
                   src={ue.photos.small != null ? ue.photos.small : noUserPhoto}
                 />
