@@ -1,5 +1,5 @@
-const ADD_POST = "ADD-POST";
-const UPDATE_NEW_TEXT_POST = "UPDATE-NEW-TEXT-POST";
+const ADD_POST = "ADD_POST";
+const UPDATE_NEW_TEXT_POST = "UPDATE_NEW_TEXT_POST";
 
 let initialState = {
   newText: "",
