@@ -2,12 +2,14 @@ import * as axios from 'axios';
 import React from 'react';
 import { connect } from 'react-redux';
 import Profile from '../Profile';
-import {setCurrentProfile, addPost, updateNewTextPost} from '../../../redux/profile-reducer'
+import {setCurrentProfile} from '../../../redux/profile-reducer'
+import { withRouter } from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
     componentDidMount () {
+    let userId = this.props.match.params.userId;
     axios
-      .get(`https://social-network.samuraijs.com/api/1.0/profile/12406`)
+      .get(`https://social-network.samuraijs.com/api/1.0/profile/` + userId)
       .then((response) => {
         this.props.setCurrentProfile(response.data);
       });
@@ -22,4 +24,6 @@ let mapStateToProps = (state) => ({
     profile: state.profilePage.profile
 });
 
-export default connect( mapStateToProps, { setCurrentProfile, addPost, updateNewTextPost }) (ProfileContainer);
+let WithUserUrl = withRouter (ProfileContainer)
+
+export default connect( mapStateToProps, { setCurrentProfile }) (WithUserUrl);
