@@ -23,7 +23,7 @@ let Users = (props) => {
                 props.onPageChanged(p);
               }}
             >
-              {p}
+              {p}|
             </div>
           );
         })}
@@ -48,7 +48,9 @@ let Users = (props) => {
                         `https://social-network.samuraijs.com/api/1.0/follow/${ue.id}`,
                         {
                           withCredentials: true,
-                          headers: "0b33513f-dce5-466b-9c81-8713d7df6fb4",
+                          headers: {
+                            "API-KEY": "0b33513f-dce5-466b-9c81-8713d7df6fb4",
+                          },
                         }
                       )
                       .then((response) => {
@@ -64,19 +66,21 @@ let Users = (props) => {
                 <button
                   onClick={() => {
                     axios
-                    .post(
-                      `https://social-network.samuraijs.com/api/1.0/follow/${ue.id}`,
-                      {},
-                      {
-                        withCredentials: true,
-                        headers: "0b33513f-dce5-466b-9c81-8713d7df6fb4",
-                      }
-                    )
-                    .then((response) => {
-                      if (response.data.resultCode === 0){
-                    props.follow(ue.id);
-                      }
-                    })
+                      .post(
+                        `https://social-network.samuraijs.com/api/1.0/follow/${ue.id}`,
+                        {},
+                        {
+                          withCredentials: true,
+                          headers: {
+                            "API-KEY": "0b33513f-dce5-466b-9c81-8713d7df6fb4",
+                          },
+                        }
+                      )
+                      .then((response) => {
+                        if (response.data.resultCode === 0) {
+                          props.follow(ue.id);
+                        }
+                      });
                   }}
                 >
                   Follow
