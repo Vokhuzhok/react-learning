@@ -6,7 +6,10 @@ import {
 import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
-  return { dialogsPage: state.dialogsPage };
+  return { 
+    dialogsPage: state.dialogsPage,
+    isAuth: state.auth.auth
+   };
 };
 
 const DialogsContainer = connect(mapStateToProps, { addMessage, updateNewMessage })(Dialogs);
