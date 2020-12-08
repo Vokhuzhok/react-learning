@@ -4,6 +4,7 @@ import noUserPhoto from "../../../assest/images/User.png";
 import s from "./ProfileMain.module.css";
 import yes from '../../../assest/images/galochka.png'
 import no from '../../../assest/images/krestik.jpg'
+import ProfileStatus from "./ProfileStatus";
 
 const ProfileMain = (props) => {
   if (!props.profile) {
@@ -18,6 +19,9 @@ const ProfileMain = (props) => {
       <div className={s.gridPole}>
         <div className={s.leftPole}>
           <div className={s.userPhoto}>
+            <div>
+              My status:<ProfileStatus status={'FFFFFFF'}/>
+            </div>
             <img
               src={
                 props.profile.photos.large != null
