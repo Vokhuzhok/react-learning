@@ -2,10 +2,12 @@
     grid-area: h;
     background-color: cornflowerblue;
   }
+
 .header img{
     width: 25px;
     padding: 5px;
   }
+  
 .login a {
   text-decoration: solid;
   text-decoration-color: black;

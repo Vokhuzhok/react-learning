@@ -40,17 +40,6 @@ const Navigation = (props) => {
           Friends
         </NavLink>
       </div>
-      {/* <div className={s.friendsAva}>
-        <div>
-          <img src={props.dialogsPage.dialogs[1].ava} />
-        </div>
-        <div>
-          <img src={props.dialogsPage.dialogs[2].ava} />
-        </div>
-        <div>
-          <img src={props.dialogsPage.dialogs[3].ava} />
-        </div>
-      </div> */}
     </nav>
   );
 };
