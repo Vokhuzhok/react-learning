@@ -21,7 +21,7 @@ const ProfileMain = (props) => {
           <div className={s.userPhoto}>
             <div>
               My status:
-              <ProfileStatus status={"FFFFFFF"} />
+              <ProfileStatus status={props.status} />
             </div>
             <img
               src={

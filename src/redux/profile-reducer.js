@@ -12,7 +12,7 @@ let initialState = {
     { id: 2, message: "It`s my first post", likecount: 50 },
   ],
   profile: null,
-  status: ""
+  status: "1"
 };
 
 const profileReducer = (state = initialState, action) => {
