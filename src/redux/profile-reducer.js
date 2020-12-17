@@ -12,7 +12,7 @@ let initialState = {
     { id: 2, message: "It`s my first post", likecount: 50 },
   ],
   profile: null,
-  status: "1"
+  status: null
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -74,6 +74,14 @@ export const getStatus = (userId) => {
   return (dispatch) => {
     profileApi.getStatus(userId).then((data) => {
       dispatch(setStatus(data));
+    });
+  };
+};
+
+export const updateStatus = (status) => {
+  return (dispatch) => {
+    profileApi.setStatus(status).then((resultCode) => {
+      if (resultCode === 0) {dispatch(setStatus(status))}
     });
   };
 };

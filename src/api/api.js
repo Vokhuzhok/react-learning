@@ -44,12 +44,14 @@ export const profileApi = {
   },
 
   getStatus(userId) {
-    return instance.get(`profile/status` + userId).then((response) =>{
+    return instance.get(`profile/status/` + userId).then((response) =>{
       return response.data;
     });
   },
 
   setStatus(status) {
-    return instance.put(`profile/status`, {status});
+    return instance.put(`profile/status`, {status}).then((response) => {
+      return response.data.resultCode;
+    });
   }
 };
