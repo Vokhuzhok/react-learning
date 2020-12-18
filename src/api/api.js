@@ -34,6 +34,12 @@ export const authApi = {
       return response.data;
     });
   },
+
+  postLogin(formData) {
+    return instance.post(`auth/login`, {formData}).then((response) => {
+      return response.data;
+    });
+  }
 };
 
 export const profileApi = {
