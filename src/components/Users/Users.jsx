@@ -14,7 +14,7 @@ let Users = (props) => {
 
   return (
     <div>
-      <div className={s.pagesNumber}>
+      <section className={s.pagesNumber}>
         {pages.map((p) => {
           return (
             <div
@@ -23,11 +23,11 @@ let Users = (props) => {
                 props.onPageChanged(p);
               }}
             >
-              {p}|
+              {p}
             </div>
           );
         })}
-      </div>
+      </section>
       {props.users.map((ue) => (
         <div key={ue.id} className={s.users}>
           <div className={s.left}>

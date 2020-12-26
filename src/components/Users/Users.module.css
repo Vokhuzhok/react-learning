@@ -30,16 +30,22 @@
 
 .selectedPage {
     font-weight: bold;
+    border: 2px solid;
 }
 
 .pagesNumber {
-    overflow:scroll;
+    /* overflow:scroll;
     width: 800px;
-    height: 50px;
+    height: 50px; */
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 1000px;
+    cursor: pointer;
 }
 
 .pagesNumber div {
-    display: inline;
-    padding: 2px;
-    cursor: default;
+    margin: 1px;
+    border-left: 1px solid;
+    border-right: 1px solid;
 }
