@@ -1,6 +1,6 @@
 import React from "react";
+import { Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
-import { authApi } from "../../api/api";
 import { requred } from "../../utils/validators/validators";
 import { Input } from "../common/FormControls";
 
@@ -11,7 +11,7 @@ const LoginForm = (props) => {
         <Field name="email" placeholder="E-mail" component={Input} validate={[requred]}/>
       </div>
       <div>
-        <Field name="password" placeholder="Password" component={Input} validate = {[requred]} />
+        <Field name="password" placeholder="Password" component={Input} validate = {[requred]} type="password"/>
       </div>
       <div>
         <Field name="rememberMe" component="input" type="checkbox" /> Remember Me
@@ -30,8 +30,10 @@ const LoginReduxForm = reduxForm({form: "login"})(LoginForm)
 const Login = (props) => {
 
 const onSubmit = (formData) => {
-  authApi.postLogin(formData)
+  props.logIn(formData.email, formData.password, formData.rememberMe);
 }
+
+if (props.auth.auth) {return ( <Redirect to = "/profile" /> )}
 
   return (
   <div>

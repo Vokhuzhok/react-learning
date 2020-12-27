@@ -7,7 +7,10 @@ const Header = (props) => {
     <header className={s.header}>
       <img src="http://www.usb-over-network.com/img/main/fabulatech-logo-1600.png" />
       {props.auth ? (
-        props.login
+      <div>
+        {props.login} <button onClick = {props.logOut}>LogOut</button>
+      </div>
+      
       ) : (
         <div className={s.Login}>
           <NavLink to={"/login"}>Login</NavLink>
