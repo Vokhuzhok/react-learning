@@ -2,14 +2,20 @@
     grid-area: n;
     background-color: teal;
     padding: 25px;
+    height: 50vh;
   }
 
   .item a{
     color: whitesmoke;
     text-decoration: none;
   }
+
   .item a.activeLink{
     color: darkblue;
+  }
+
+  .item :hover{
+    color:rgb(223, 175, 245);
   }
 
   .friends{

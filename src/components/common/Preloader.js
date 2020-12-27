@@ -3,9 +3,9 @@ import preloader from "../../assest/images/Preloader.gif";
 
 let Preloader = (props) => {
   return (
-    <div>
+    <span>
       <img src={preloader} />
-    </div>
+    </span>
   );
 };
 
