@@ -10,3 +10,8 @@
 .noError textarea{
     border-radius: 3%;
 }
+
+.errorForm {
+    border: 1px solid red;
+    color: red;
+}

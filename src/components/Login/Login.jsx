@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { requred } from "../../utils/validators/validators";
 import { Input } from "../common/FormControls";
+import s from "../common/FormControls.module.css";
 
 const LoginForm = (props) => {
   return (
@@ -16,6 +17,7 @@ const LoginForm = (props) => {
       <div>
         <Field name="rememberMe" component="input" type="checkbox" /> Remember Me
       </div>
+      { props.error && <div className={s.errorForm}>{props.error}</div>}
       <div>
        <button>Log In</button>
       </div>    
