@@ -1,20 +1,32 @@
 import React from "react";
+import { connect } from "react-redux";
+import {Route, withRouter } from "react-router-dom";
+import { compose } from "redux";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
-import Navigation from "./components/Navigation/Navigation";
-import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
+import Preloader from "./components/common/Preloader";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import Friends from "./components/Friends/Friends";
-import UsersContainer from "./components/Users/UsersContainer";
-import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import { LoginContainer } from "./components/Login/LoginContainer";
+import Music from "./components/Music/Music";
+import Navigation from "./components/Navigation/Navigation";
+import News from "./components/News/News";
+import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
+import Settings from "./components/Settings/Settings";
+import UsersContainer from "./components/Users/UsersContainer";
+import {getInit} from "./redux/app-reducer";
 
-function App(props) {
+class App extends React.Component {
+
+  componentDidMount() {
+    this.props.getInit()
+  }
+
+  render () { 
+    if (!this.props.initialised) {
+      return <Preloader />
+    }
   return (
-    <BrowserRouter>
       <div className="app-wrapper">
         <HeaderContainer />
         <Navigation />
@@ -29,8 +41,14 @@ function App(props) {
           <Route path="/login" render={() => <LoginContainer />} />
         </div>
       </div>
-    </BrowserRouter>
-  );
+  );}
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+  initialised: state.app.initialised
+})
+
+export default compose(
+  connect (mapStateToProps,{getInit}),
+  withRouter
+  ) (App);
