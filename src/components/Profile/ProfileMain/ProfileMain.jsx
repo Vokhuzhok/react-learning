@@ -20,7 +20,7 @@ const ProfileMain = (props) => {
         <div className={s.leftPole}>
           <div className={s.userPhoto}>
             <div>
-              My status: <ProfileStatus status={props.status} updateStatus={props.updateStatus}/>
+              My status: <ProfileStatus status={props.status} updateUserStatus={props.updateUserStatus}/>
             </div>
             <img
               src={

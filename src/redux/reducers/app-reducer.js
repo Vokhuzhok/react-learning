@@ -24,7 +24,6 @@ export const getInit = () => (dispatch) => {
     let promise = dispatch(authMe());
     Promise.all([promise])
     .then (() => {
-      debugger;
       dispatch(setInit())
     });
 };

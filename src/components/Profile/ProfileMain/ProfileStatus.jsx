@@ -17,7 +17,7 @@ class ProfileStatus extends React.Component {
     this.setState({
       editMode: false,
     });
-    this.props.updateStatus(this.state.status)
+    this.props.updateUserStatus(this.state.status)
   };
 
   onStatusChange = (e) => {
