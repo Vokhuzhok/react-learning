@@ -1,9 +1,10 @@
 import MyPost from "./MyPosts";
-import { addPost } from "../../../redux/profile-reducer";
+import { addPost } from "../../../redux/reducers/profile-reducer";
 import { connect } from "react-redux";
+import { getProfilePage } from "../../../redux/selectors/profileSelectors";
 
 let mapStateToProps = (state) => {
-  return { profilePage: state.profilePage };
+  return { profilePage: getProfilePage(state) };
 };
 
 const MyPostContainer = connect(mapStateToProps, {

@@ -1,10 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
 import Profile from "../Profile";
-import { getProfile, getStatus, updateStatus } from "../../../redux/profile-reducer";
+import { getUserProfile, getUserStatus, updateUserStatus } from "../../../redux/reducers/profile-reducer";
 import { withRouter } from "react-router-dom";
 import { compose } from "redux";
 import { withAuthRedirect } from "../../../hoc/withAuthRedirect";
+import { getProfile, getStatus } from "../../../redux/selectors/profileSelectors";
 
 class ProfileContainer extends React.Component {
   componentDidMount() {
@@ -24,12 +25,12 @@ class ProfileContainer extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  profile: state.profilePage.profile,
-  status: state.profilePage.status
+  profile:getProfile(state),
+  status: getStatus(state)
 });
 
 export default compose(
-  connect(mapStateToProps, { getProfile, getStatus, updateStatus }),
+  connect(mapStateToProps, { getUserProfile, getUserStatus, updateUserStatus }),
   withRouter,
   withAuthRedirect
 )(ProfileContainer);

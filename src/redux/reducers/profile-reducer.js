@@ -1,4 +1,4 @@
-import { profileApi } from "../api/api";
+import { profileApi } from "../../api/api";
 
 const ADD_POST = "ADD_POST";
 const SET_CURRENT_PROFILE = "SET_CURRENT_PROFILE";
@@ -45,31 +45,31 @@ export const setCurrentProfile = (profile) => ({
   type: SET_CURRENT_PROFILE,
   profile,
 });
-export const setStatus = (status) =>({
+export const setUserStatus = (status) =>({
   type:SET_STATUS,
   status
 });
 
-export const getProfile = (userId) => {
+export const getUserProfile = (userId) => {
   return (dispatch) => {
-    profileApi.getProfile(userId).then((data) => {
+    profileApi.getUserProfile(userId).then((data) => {
       dispatch(setCurrentProfile(data));
     });
   };
 };
 
-export const getStatus = (userId) => {
+export const getUserStatus = (userId) => {
   return (dispatch) => {
-    profileApi.getStatus(userId).then((data) => {
-      dispatch(setStatus(data));
+    profileApi.getUserStatus(userId).then((data) => {
+      dispatch(setUserStatus(data));
     });
   };
 };
 
-export const updateStatus = (status) => {
+export const updateUserStatus = (status) => {
   return (dispatch) => {
-    profileApi.setStatus(status).then((resultCode) => {
-      if (resultCode === 0) {dispatch(setStatus(status))}
+    profileApi.setUserStatus(status).then((resultCode) => {
+      if (resultCode === 0) {dispatch(setUserStatus(status))}
     });
   };
 };

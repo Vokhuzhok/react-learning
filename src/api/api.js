@@ -9,7 +9,7 @@ const instance = axios.create({
 });
 
 export const userApi = {
-  getUsers(currentPage = 1, pageSize = 10) {
+  uGet(currentPage = 1, pageSize = 10) {
     return instance
       .get(`users?page=${currentPage}&count=${pageSize}`)
       .then((response) => {
@@ -29,7 +29,7 @@ export const userApi = {
 };
 
 export const authApi = {
-  getAuth() {
+  authMe() {
     return instance.get(`auth/me`).then((response) => {
       return response.data;
     });
@@ -49,19 +49,19 @@ export const authApi = {
 };
 
 export const profileApi = {
-  getProfile(userId) {
+  getUserProfile(userId) {
     return instance.get(`profile/` + userId).then((response) => {
       return response.data;
     });
   },
 
-  getStatus(userId) {
+  getUserStatus(userId) {
     return instance.get(`profile/status/` + userId).then((response) =>{
       return response.data;
     });
   },
 
-  setStatus(status) {
+  setUserStatus(status) {
     return instance.put(`profile/status`, {status}).then((response) => {
       return response.data.resultCode;
     });

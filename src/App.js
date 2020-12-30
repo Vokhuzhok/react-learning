@@ -14,7 +14,8 @@ import News from "./components/News/News";
 import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
-import {getInit} from "./redux/app-reducer";
+import {getInit} from "./redux/reducers/app-reducer";
+import { getInitialised } from "./redux/selectors/authSelector";
 
 class App extends React.Component {
 
@@ -45,7 +46,7 @@ class App extends React.Component {
 }
 
 let mapStateToProps = (state) => ({
-  initialised: state.app.initialised
+  initialised: getInitialised(state)
 })
 
 export default compose(
