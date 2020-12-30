@@ -45,7 +45,7 @@ export const setCurrentProfile = (profile) => ({
   type: SET_CURRENT_PROFILE,
   profile,
 });
-export const setUserStatus = (status) =>({
+export const setUserStatusInState = (status) =>({
   type:SET_STATUS,
   status
 });
@@ -61,7 +61,7 @@ export const getUserProfile = (userId) => {
 export const getUserStatus = (userId) => {
   return (dispatch) => {
     profileApi.getUserStatus(userId).then((data) => {
-      dispatch(setUserStatus(data));
+      dispatch(setUserStatusInState(data));
     });
   };
 };
@@ -69,7 +69,7 @@ export const getUserStatus = (userId) => {
 export const updateUserStatus = (status) => {
   return (dispatch) => {
     profileApi.setUserStatus(status).then((resultCode) => {
-      if (resultCode === 0) {dispatch(setUserStatus(status))}
+      if (resultCode === 0) {dispatch(setUserStatusInState(status))}
     });
   };
 };
