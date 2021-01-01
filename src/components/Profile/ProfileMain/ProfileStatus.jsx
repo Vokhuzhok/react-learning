@@ -77,7 +77,7 @@ const ProfileStatus = (props) => {
 
   return <span className={s.status}>
            {!editMode && (
-            <span onDoubleClick={activateEditMode}>
+            <span onDoubleClick={props.userId === props.authId ? activateEditMode : null}>
               {!props.status ? "No status" : props.status}
             </span>
           )}

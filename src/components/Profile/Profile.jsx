@@ -5,7 +5,11 @@ import ProfileMain from "./ProfileMain/ProfileMain";
 const Profile = (props) => {
   return (
     <div>
-      <ProfileMain profile={props.profile}  status={props.status} updateUserStatus={props.updateUserStatus} />
+      <ProfileMain 
+      authId={props.authId}
+      profile={props.profile}  
+      status={props.status} 
+      updateUserStatus={props.updateUserStatus} />
       <MyPostsContainer />
     </div>
   );

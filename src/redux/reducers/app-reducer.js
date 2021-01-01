@@ -1,4 +1,5 @@
 import { authMe } from "./auth-reducer";
+import { getUserStatus } from "./profile-reducer";
 
 const SET_INIT = "SET_INIT";
 
@@ -21,7 +22,7 @@ const appReducer = (state = initialState, action) => {
 const setInit = () => ({type: SET_INIT});
 
 export const getInit = () => (dispatch) => {
-    let promise = dispatch(authMe());
+    let promise = dispatch(authMe())
     Promise.all([promise])
     .then (() => {
       dispatch(setInit())

@@ -13,3 +13,7 @@ export const getAuth = (state) => {
 export const getInitialised = (state) => {
     return state.app.initialised
 }
+
+export const getUserId = (state) => {
+    return state.auth.userId
+}
