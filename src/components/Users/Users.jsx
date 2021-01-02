@@ -4,21 +4,13 @@ import noUserPhoto from "../../assest/images/User.png";
 import { NavLink } from "react-router-dom";
 
 let Users = (props) => {
-  let pageCount = Math.ceil(props.usersCount / props.pageSize);
-
-  let pages = [];
-
-  for (let i = 1; i <= pageCount; i++) {
-    pages.push(i);
-  }
-
   return (
     <div>
       <section className={s.pagesNumber}>
-        {pages.map((p) => {
+        {props.pages.map((p) => {
           return (
             <div
-              className={props.currentPage === p && s.selectedPage}
+              className={props.currentPage === p ? s.selectedPage : undefined}
               onClick={() => {
                 props.onPageChanged(p);
               }}

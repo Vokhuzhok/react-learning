@@ -1,5 +1,4 @@
 import { authMe } from "./auth-reducer";
-import { getUserStatus } from "./profile-reducer";
 
 const SET_INIT = "SET_INIT";
 

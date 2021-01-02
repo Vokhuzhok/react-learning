@@ -28,11 +28,10 @@ import { getUserId } from "../../../redux/selectors/authSelector";
 const ProfileContainer = (props) => {
 
   let userId = props.match.params.userId;
-  if (props.profile === null) {userId = props.authId}
+  if (props.profile === null || userId === undefined) {userId = props.authId}
 
   useEffect(() => {
     props.getUserProfile(userId)
-  //   console.log('!!!')
   }, [userId]);
 
   useEffect (() => {

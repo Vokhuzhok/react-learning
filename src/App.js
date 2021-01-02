@@ -17,32 +17,55 @@ import UsersContainer from "./components/Users/UsersContainer";
 import {getInit} from "./redux/reducers/app-reducer";
 import { getInitialised } from "./redux/selectors/authSelector";
 
-class App extends React.Component {
+// class App extends React.Component {
 
-  componentDidMount() {
-    this.props.getInit()
-  }
+//   componentDidMount() {
+//     this.props.getInit()
+//   }
 
-  render () { 
-    if (!this.props.initialised) {
-      return <Preloader />
-    }
-  return (
-      <div className="app-wrapper">
-        <HeaderContainer />
-        <Navigation />
-        <div className="app-wrapper-content">
-          <Route path="/dialogs" render={() => <DialogsContainer />} />
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-          <Route path="/news" render={() => <News />} />
-          <Route path="/music" render={() => <Music />} />
-          <Route path="/settings" render={() => <Settings />} />
-          <Route path="/friends" render={() => <Friends />} />
-          <Route path="/users" render={() => <UsersContainer />} />
-          <Route path="/login" render={() => <LoginContainer />} />
-        </div>
-      </div>
-  );}
+//   render () { 
+//     if (!this.props.initialised) {
+//       return <Preloader />
+//     }
+//   return (
+//       <div className="app-wrapper">
+//         <HeaderContainer />
+//         <Navigation />
+//         <div className="app-wrapper-content">
+//           <Route path="/dialogs" render={() => <DialogsContainer />} />
+//           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+//           <Route path="/news" render={() => <News />} />
+//           <Route path="/music" render={() => <Music />} />
+//           <Route path="/settings" render={() => <Settings />} />
+//           <Route path="/friends" render={() => <Friends />} />
+//           <Route path="/users" render={() => <UsersContainer />} />
+//           <Route path="/login" render={() => <LoginContainer />} />
+//         </div>
+//       </div>
+//   );}
+// }
+
+const App = (props) => {
+  props.getInit();
+  if (!props.initialised) {
+          return <Preloader />
+        }
+  else   { return (
+          <div className="app-wrapper">
+            <HeaderContainer />
+            <Navigation />
+            <div className="app-wrapper-content">
+              <Route path="/dialogs" render={() => <DialogsContainer />} />
+              <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+              <Route path="/news" render={() => <News />} />
+              <Route path="/music" render={() => <Music />} />
+              <Route path="/settings" render={() => <Settings />} />
+              <Route path="/friends" render={() => <Friends />} />
+              <Route path="/users" render={() => <UsersContainer />} />
+              <Route path="/login" render={() => <LoginContainer />} />
+            </div>
+          </div>
+      );}
 }
 
 let mapStateToProps = (state) => ({
