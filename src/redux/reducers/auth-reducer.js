@@ -28,19 +28,18 @@ export const setUserData = (userId, email, login, auth) => ({
 });
 
 export const authMe = () => {
-  return (dispatch) => {
-   return authApi.authMe().then((data) => {
+  return async (dispatch) => {
+   let data = await authApi.authMe()
       if (data.resultCode === 0) {
         let { id, email, login } = data.data;
         dispatch(setUserData(id, email, login, true));
       }
-    });
   };
 };
 
 export const logIn = (email, password,rememberMe) => {
-  return (dispatch) => {
-    authApi.postLogin(email, password, rememberMe).then((data) => {
+  return async (dispatch) => {
+   let data = await authApi.postLogin(email, password, rememberMe)
       if (data.resultCode === 0) {
         dispatch(authMe());
       }
@@ -48,17 +47,15 @@ export const logIn = (email, password,rememberMe) => {
         let message = data.messages.length > 0 ? data.messages[0] : "Some error"
         dispatch(stopSubmit("login", {_error: message}))
       }
-    });
   };
 };
 
 export const logOut = () => {
-  return (dispatch) => {
-    authApi.deleteLogin().then((data) => {
+  return async (dispatch) => {
+   let data = await authApi.deleteLogin()
       if (data.resultCode === 0) {
         dispatch(setUserData(null, null, null, false));
       }
-    });
   };
 };
 

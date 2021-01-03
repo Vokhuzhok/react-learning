@@ -8,6 +8,7 @@
   .item a{
     color: whitesmoke;
     text-decoration: none;
+    padding: 4px;
   }
 
   .item a.activeLink{

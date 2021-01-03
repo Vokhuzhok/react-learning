@@ -66,33 +66,30 @@ export const toggleIsFetching = (isFetching) => ({
 });
 
 export const uGet = (currentPage, pageSize) => {
-  return (dispatch) => {
+  return async (dispatch) => {
     dispatch(toggleIsFetching(true));
-    userApi.uGet(currentPage, pageSize).then((data) => {
+   let data = await userApi.uGet(currentPage, pageSize)
       dispatch(setUsers(data.items));
       dispatch(setUsersCount(data.totalCount));
       dispatch(toggleIsFetching(false));
-    });
   };
 };
 
 export const unfollow = (userId) => {
-  return (dispatch) => {
-    userApi.fDelete(userId).then((data) => {
+  return async (dispatch) => {
+   let data = await userApi.fDelete(userId)
       if (data.resultCode === 0) {
         dispatch(unfollowAccept(userId));
       }
-    });
   };
 };
 
 export const follow = (userId) => {
-  return (dispatch) => {
-    userApi.fPost(userId).then((data) => {
+  return async (dispatch) => {
+   let data = await userApi.fPost(userId)
       if (data.resultCode === 0) {
         dispatch(followAccept(userId));
       }
-    });
   };
 };
 

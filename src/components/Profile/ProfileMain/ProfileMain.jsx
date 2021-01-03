@@ -12,10 +12,7 @@ const ProfileMain = (props) => {
   }
 
   return (
-    <div>
-      <div className={s.profile}>
-        <img src="https://im0-tub-ru.yandex.net/i?id=eaf56b9e7beb2e7d7b8d1f498d384ae6&n=13&exp=1" />
-      </div>
+    <div className={s.mainpole}>
       <div className={s.gridPole}>
         <div className={s.leftPole}>
           <div className={s.userPhoto}>
@@ -32,6 +29,7 @@ const ProfileMain = (props) => {
                   ? props.profile.photos.large
                   : noUserPhoto
               }
+            alt ="Sorry"
             />
           </div>
           <div className={s.fullName}>{props.profile.fullName}</div>

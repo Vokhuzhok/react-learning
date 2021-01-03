@@ -1,6 +1,6 @@
 .header{
     grid-area: h;
-    background-color: cornflowerblue;
+    background-color: rgb(66, 155, 206);
   }
 
 .header img{
@@ -22,4 +22,11 @@
 
 .header div :hover {
   color:rgb(223, 175, 245);
+}
+
+.header button {
+  border-radius: 45%;
+  background-color: beige;
+  border-color: bisque;
+  padding: 5px;
 }

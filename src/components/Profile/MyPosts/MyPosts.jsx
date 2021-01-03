@@ -7,7 +7,6 @@ const MyPost = React.memo((props) => {
   let postsElements = props.posts.map((p) => (
     <Post message={p.message} likecount={p.likecount} key={p.id} />
   ));
-console.log ('Render')
   let onSubmit = (formData) => {
     props.addPost(formData.addPost)
   };

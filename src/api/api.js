@@ -65,5 +65,11 @@ export const profileApi = {
     return instance.put(`profile/status`, {status}).then((response) => {
       return response.data.resultCode;
     });
-  }
+  },
+
+  putAuthUserProfile(profile) {
+   return instance.put(`profile/`, {profile}).then((response) => {
+     return response.data.resultCode;
+   })
+ }
 };

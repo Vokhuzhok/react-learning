@@ -37,7 +37,7 @@ import {
 //   }
 // }
 
-const UsersAPI = (props) => {
+const UsersAPI = ({uGet, pageSize, usersCount, isFetching, users, follow, unfollow}) => {
 
   let [pages, setPages] = useState([])
 
@@ -48,32 +48,29 @@ const UsersAPI = (props) => {
   };
 
     useEffect(() => {
-    props.uGet(currentPage, props.pageSize);
-  },[currentPage, props.pageSize]);
+    uGet(currentPage, pageSize);
+  },[uGet, currentPage, pageSize]);
 
   useEffect(() => {
     pages=[];
-    let pageCount = Math.ceil(props.usersCount / props.pageSize);
+    let pageCount = Math.ceil(usersCount / pageSize);
     for (let i = 1; i <= pageCount; i++) {
       pages.push(i);
     }
     setPages(pages)
-  }, [props.usersCount, props.pageSize])
+  }, [usersCount, pageSize])
 
   return (
     <>
-      {props.isFetching ? (
-        <Preloader />
-      ) : (
         <Users
-          users={props.users}
+          users={users}
           pages={pages}
           currentPage={currentPage}
           onPageChanged={onPageChanged}
-          follow={props.follow}
-          unfollow={props.unfollow}
+          follow={follow}
+          unfollow={unfollow}
+          isFetching={isFetching}
         />
-      )}
     </>
   );
 };

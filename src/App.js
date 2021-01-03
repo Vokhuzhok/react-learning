@@ -5,7 +5,6 @@ import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/common/Preloader";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import Friends from "./components/Friends/Friends";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import { LoginContainer } from "./components/Login/LoginContainer";
 import Music from "./components/Music/Music";
@@ -15,7 +14,7 @@ import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer"
 import Settings from "./components/Settings/Settings";
 import UsersContainer from "./components/Users/UsersContainer";
 import {getInit} from "./redux/reducers/app-reducer";
-import { getInitialised } from "./redux/selectors/authSelector";
+import { getAuthCheck, getInitialised } from "./redux/selectors/authSelector";
 
 // class App extends React.Component {
 
@@ -46,7 +45,7 @@ import { getInitialised } from "./redux/selectors/authSelector";
 // }
 
 const App = (props) => {
-  props.getInit();
+  if (!props.auth) {props.getInit()};
   if (!props.initialised) {
           return <Preloader />
         }
@@ -60,7 +59,6 @@ const App = (props) => {
               <Route path="/news" render={() => <News />} />
               <Route path="/music" render={() => <Music />} />
               <Route path="/settings" render={() => <Settings />} />
-              <Route path="/friends" render={() => <Friends />} />
               <Route path="/users" render={() => <UsersContainer />} />
               <Route path="/login" render={() => <LoginContainer />} />
             </div>
@@ -69,7 +67,8 @@ const App = (props) => {
 }
 
 let mapStateToProps = (state) => ({
-  initialised: getInitialised(state)
+  initialised: getInitialised(state),
+  auth: getAuthCheck(state)
 })
 
 export default compose(

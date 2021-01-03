@@ -20,12 +20,10 @@ const appReducer = (state = initialState, action) => {
 
 const setInit = () => ({type: SET_INIT});
 
-export const getInit = () => (dispatch) => {
+export const getInit = () => async (dispatch) => {
     let promise = dispatch(authMe())
-    Promise.all([promise])
-    .then (() => {
+   await Promise.all([promise])
       dispatch(setInit())
-    });
 };
 
 export default appReducer;

@@ -25,25 +25,31 @@ import { getUserId } from "../../../redux/selectors/authSelector";
 //   }
 // }
 
-const ProfileContainer = (props) => {
+const ProfileContainer = ({profile, 
+  getUserProfile, 
+  getUserStatus, 
+  updateUserStatus, 
+  status, 
+  authId, 
+  ...props}) => {
 
   let userId = props.match.params.userId;
-  if (props.profile === null || userId === undefined) {userId = props.authId}
+  if (profile === null || userId === undefined) {userId = authId}
 
   useEffect(() => {
-    props.getUserProfile(userId)
-  }, [userId]);
+    getUserProfile(userId)
+  }, [getUserProfile, userId]);
 
   useEffect (() => {
-    props.getUserStatus(userId)
-  }, [userId])
+    getUserStatus(userId)
+  }, [getUserStatus, userId])
 
   return (
     <Profile
-    authId = {props.authId}
-    profile = {props.profile}
-    status = {props.status}
-    updateUserStatus = {props.updateUserStatus}
+    authId = {authId}
+    profile = {profile}
+    status = {status}
+    updateUserStatus = {updateUserStatus}
     />
     )
   

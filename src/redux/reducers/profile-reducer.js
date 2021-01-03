@@ -51,26 +51,23 @@ export const setUserStatusInState = (status) =>({
 });
 
 export const getUserProfile = (userId) => {
-  return (dispatch) => {
-    profileApi.getUserProfile(userId).then((data) => {
+  return async (dispatch) => {
+  let data = await profileApi.getUserProfile(userId)
       dispatch(setCurrentProfile(data));
-    });
   };
 };
 
 export const getUserStatus = (userId) => {
-  return (dispatch) => {
-    profileApi.getUserStatus(userId).then((data) => {
+  return async(dispatch) => {
+   let data = await profileApi.getUserStatus(userId)
       dispatch(setUserStatusInState(data));
-    });
   };
 };
 
 export const updateUserStatus = (status) => {
-  return (dispatch) => {
-    profileApi.setUserStatus(status).then((resultCode) => {
+  return async (dispatch) => {
+   let resultCode = await profileApi.setUserStatus(status)
       if (resultCode === 0) {dispatch(setUserStatusInState(status))}
-    });
   };
 };
 

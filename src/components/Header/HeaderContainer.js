@@ -4,14 +4,14 @@ import Header from "./Header";
 import { logOut } from "../../redux/reducers/auth-reducer";
 import { getAuthCheck, getLogin, getUserId } from "../../redux/selectors/authSelector";
 
-const HeaderContainer = (props) => {
+const HeaderContainer = ({login, auth, userId, logOut}) => {
 
   return (
      <Header 
-     login={props.login}
-     auth={props.auth}
-     userId={props.userId}
-     logOut={props.logOut}
+     login={login}
+     auth={auth}
+     userId={userId}
+     logOut={logOut}
       />
   )
 }

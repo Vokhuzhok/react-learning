@@ -35,11 +35,6 @@ const Navigation = (props) => {
           Settings
         </NavLink>
       </div>
-      <div className={s.friends}>
-        <NavLink to="/friends" activeClassName={s.activeFriend}>
-          Friends
-        </NavLink>
-      </div>
     </nav>
   );
 };
