@@ -9,7 +9,7 @@ const instance = axios.create({
 });
 
 export const userApi = {
-  getUsers(currentPage = 1, pageSize = 10) {
+  uGet(currentPage , pageSize) {
     return instance
       .get(`users?page=${currentPage}&count=${pageSize}`)
       .then((response) => {
@@ -29,27 +29,47 @@ export const userApi = {
 };
 
 export const authApi = {
-  getAuth() {
+  authMe() {
     return instance.get(`auth/me`).then((response) => {
       return response.data;
     });
   },
+
+  postLogin(email, password, rememberMe) {
+    return instance.post(`auth/login`, {email, password, rememberMe}).then((response) => {
+      return response.data;
+    });
+  },
+
+  deleteLogin() {
+    return instance.delete(`auth/login`).then((response) => {
+      return response.data;
+    })
+  }
 };
 
 export const profileApi = {
-  getProfile(userId) {
+  getUserProfile(userId) {
     return instance.get(`profile/` + userId).then((response) => {
       return response.data;
     });
   },
 
-  getStatus(userId) {
-    return instance.get(`profile/status` + userId).then((response) =>{
+  getUserStatus(userId) {
+    return instance.get(`profile/status/` + userId).then((response) =>{
       return response.data;
     });
   },
 
-  setStatus(status) {
-    return instance.put(`profile/status`, {status});
-  }
+  setUserStatus(status) {
+    return instance.put(`profile/status`, {status}).then((response) => {
+      return response.data.resultCode;
+    });
+  },
+
+  putAuthUserProfile(profile) {
+   return instance.put(`profile/`, {profile}).then((response) => {
+     return response.data.resultCode;
+   })
+ }
 };

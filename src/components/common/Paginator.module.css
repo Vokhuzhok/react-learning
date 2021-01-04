@@ -1,0 +1,22 @@
+.selectedPage {
+    font-weight: bold;
+    /* border: 2px solid; */
+}
+
+.pagesNumber {
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    width: 82vw;
+    cursor: pointer;
+}
+
+.pagesNumber button {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.pagesNumber :hover {
+    color: rgb(223, 175, 245);
+}

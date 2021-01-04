@@ -1,5 +1,4 @@
 const ADD_MESSAGE = "ADD_MESSAGE";
-const UPDATE_NEW_MESSAGE = "UPDATE_NEW_MESSAGE";
 
 let initialState = {
   dialogs: [
@@ -37,7 +36,6 @@ let initialState = {
         "https://yt3.ggpht.com/a/AATXAJzwzRrAdErWWD7zuI-KBzY4Nma9XUotZ5UQBQ=s900-c-k-c0xffffffff-no-rj-mo",
     },
   ],
-  newMessage: "",
   messages: [
     { id: 1, message: "Hi!" },
     { id: 2, message: "How are you?" },
@@ -50,24 +48,17 @@ const dialogsReducer = (state = initialState, action) => {
     case ADD_MESSAGE:
       let newMessages = {
         id: 4,
-        message: state.newMessage,
+        message: action.text,
       };
       return {
         ...state,
         messages: [...state.messages, newMessages],
-        newMessage: "",
-      };
-    case UPDATE_NEW_MESSAGE:
-      return {
-        ...state,
-        newMessage: action.Mtext,
       };
     default:
       return state;
   };
 };
 
-export const addMessage = () => ({ type: ADD_MESSAGE });
-export const updateNewMessage = (Mtext) => ({ type: UPDATE_NEW_MESSAGE, Mtext });
+export const addMessage = (text) => ({ type: ADD_MESSAGE, text});
 
 export default dialogsReducer;

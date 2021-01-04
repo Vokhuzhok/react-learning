@@ -1,0 +1,17 @@
+.error textarea{
+    border: 2px red solid;
+    border-radius: 3%;
+}
+
+.error span {
+    color: red;
+}
+
+.noError textarea{
+    border-radius: 3%;
+}
+
+.errorForm {
+    border: 1px solid red;
+    color: red;
+}

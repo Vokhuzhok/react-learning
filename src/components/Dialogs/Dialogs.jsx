@@ -2,6 +2,7 @@ import React from "react";
 import s from "./Dialogs.module.css";
 import Dialog from "./Dialog/Dialog";
 import Message from "./Message/Message";
+import AddMessageReduxForm from "./DialogsForm";
 
 const Dialogs = (props) => {
   let dialogElements = props.dialogsPage.dialogs.map((d) => (
@@ -12,11 +13,8 @@ const Dialogs = (props) => {
     <Message message={m.message} key={m.id} />
   ));
 
-  let addNewMessageRef = React.createRef();
-
-  let updateNewMessage = () => {
-    let Mtext = addNewMessageRef.current.value;
-    props.updateNewMessage(Mtext);
+  let onSubmit = (formData) => {
+    props.addMessage(formData.addMessage);
   };
 
   return (
@@ -25,12 +23,7 @@ const Dialogs = (props) => {
       <div className={s.messages}>
         {messageElements}
         <div className={s.addMessage}>
-          <textarea
-            value={props.dialogsPage.newMessage}
-            onChange={updateNewMessage}
-            ref={addNewMessageRef}
-          />
-          <button onClick={props.addMessage}>Add Message</button>
+          <AddMessageReduxForm onSubmit={onSubmit} />
         </div>
       </div>
     </div>

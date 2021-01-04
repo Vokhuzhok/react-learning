@@ -1,45 +1,78 @@
 import React from "react";
+import { connect } from "react-redux";
+import {Route, withRouter } from "react-router-dom";
+import { compose } from "redux";
 import "./App.css";
-import { BrowserRouter, Route } from "react-router-dom";
+import Preloader from "./components/common/Preloader";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
+import { LoginContainer } from "./components/Login/LoginContainer";
+import Music from "./components/Music/Music";
 import Navigation from "./components/Navigation/Navigation";
 import News from "./components/News/News";
-import Music from "./components/Music/Music";
-import Settings from "./components/Settings/Settings";
-import DialogsContainer from "./components/Dialogs/DialogsContainer";
-import Friends from "./components/Friends/Friends";
-import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
-import HeaderContainer from "./components/Header/HeaderContainer";
-import Login from "./components/Login/Login";
+import Settings from "./components/Settings/Settings";
+import SettingsContainer from "./components/Settings/SettingsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
+import {getInit} from "./redux/reducers/app-reducer";
+import { getAuthCheck, getInitialised } from "./redux/selectors/authSelector";
 
-function App(props) {
-  return (
-    <BrowserRouter>
-      <div className="app-wrapper">
-        <HeaderContainer />
+// class App extends React.Component {
 
-        <Navigation />
+//   componentDidMount() {
+//     this.props.getInit()
+//   }
 
-        <div className="app-wrapper-content">
-          <Route path="/dialogs" render={() => <DialogsContainer />} />
+//   render () { 
+//     if (!this.props.initialised) {
+//       return <Preloader />
+//     }
+//   return (
+//       <div className="app-wrapper">
+//         <HeaderContainer />
+//         <Navigation />
+//         <div className="app-wrapper-content">
+//           <Route path="/dialogs" render={() => <DialogsContainer />} />
+//           <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+//           <Route path="/news" render={() => <News />} />
+//           <Route path="/music" render={() => <Music />} />
+//           <Route path="/settings" render={() => <Settings />} />
+//           <Route path="/friends" render={() => <Friends />} />
+//           <Route path="/users" render={() => <UsersContainer />} />
+//           <Route path="/login" render={() => <LoginContainer />} />
+//         </div>
+//       </div>
+//   );}
+// }
 
-          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-
-          <Route path="/news" render={() => <News />} />
-
-          <Route path="/music" render={() => <Music />} />
-
-          <Route path="/settings" render={() => <Settings />} />
-
-          <Route path="/friends" render={() => <Friends />} />
-
-          <Route path="/users" render={() => <UsersContainer />} />
-
-          <Route path="/login" render={() => <Login />} />
-        </div>
-      </div>
-    </BrowserRouter>
-  );
+const App = (props) => {
+  if (!props.auth) {props.getInit()};
+  if (!props.initialised) {
+          return <Preloader />
+        }
+  else   { return (
+          <div className="app-wrapper">
+            <HeaderContainer />
+            <Navigation />
+            <div className="app-wrapper-content">
+              <Route path="/dialogs" render={() => <DialogsContainer />} />
+              <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+              <Route path="/news" render={() => <News />} />
+              <Route path="/music" render={() => <Music />} />
+              <Route path="/settings" render={() => <SettingsContainer />} />
+              <Route path="/users" render={() => <UsersContainer />} />
+              <Route path="/login" render={() => <LoginContainer />} />
+            </div>
+          </div>
+      );}
 }
 
-export default App;
+let mapStateToProps = (state) => ({
+  initialised: getInitialised(state),
+  auth: getAuthCheck(state)
+})
+
+export default compose(
+  connect (mapStateToProps,{getInit}),
+  withRouter
+  ) (App);
