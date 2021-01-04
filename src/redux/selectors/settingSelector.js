@@ -3,5 +3,5 @@ export const getIsLoad = (state) => {
 }
 
 export const getAuthUserProfile = (state) => {
-    return state.setting.profile
+    return state.setting.profileAuth
 }

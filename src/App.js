@@ -12,6 +12,7 @@ import Navigation from "./components/Navigation/Navigation";
 import News from "./components/News/News";
 import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
 import Settings from "./components/Settings/Settings";
+import SettingsContainer from "./components/Settings/SettingsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import {getInit} from "./redux/reducers/app-reducer";
 import { getAuthCheck, getInitialised } from "./redux/selectors/authSelector";
@@ -58,7 +59,7 @@ const App = (props) => {
               <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
               <Route path="/news" render={() => <News />} />
               <Route path="/music" render={() => <Music />} />
-              <Route path="/settings" render={() => <Settings />} />
+              <Route path="/settings" render={() => <SettingsContainer />} />
               <Route path="/users" render={() => <UsersContainer />} />
               <Route path="/login" render={() => <LoginContainer />} />
             </div>
