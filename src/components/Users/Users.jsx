@@ -5,7 +5,6 @@ import Preloader from "../common/Preloader";
 import s from "./Users.module.css";
 
 let Users = (props) => {
-  debugger;
   return (
     <div>
       <Paginator

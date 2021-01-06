@@ -1,0 +1,28 @@
+.photo img {
+    max-width: 300px;
+}
+
+.header {
+    text-align: center;
+}
+
+.profileBlock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.contacts {
+    padding-left: 1vw;
+}
+
+.form div {
+    padding: 1vh;
+}
+
+.button {
+    padding: 1vh;
+    max-width: 150px;
+    max-height: 100px;
+    position: absolute;
+    left: 50%;
+}

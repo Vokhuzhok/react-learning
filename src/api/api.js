@@ -68,8 +68,18 @@ export const profileApi = {
   },
 
   putAuthUserProfile(profile) {
-   return instance.put(`profile/`, {profile}).then((response) => {
-     return response.data.resultCode;
+   return instance.put(`profile/`, {...profile}).then((response) => {
+     return response.data;
    })
- }
+ },
+
+ putAuthUserPhoto(file) {
+   const formData = new FormData();
+   formData.append("image", file)
+  return instance.put(`profile/photo`, formData, {
+    headers: {"Content-type": "multipart/form-data"}
+  }).then((response) => {
+    return response.data;
+  })
+}
 };

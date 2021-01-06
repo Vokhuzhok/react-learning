@@ -53,6 +53,7 @@ const App = (props) => {
   else   { return (
           <div className="app-wrapper">
             <HeaderContainer />
+            <div className="app-wrapper-navi">
             <Navigation />
             <div className="app-wrapper-content">
               <Route path="/dialogs" render={() => <DialogsContainer />} />
@@ -62,6 +63,7 @@ const App = (props) => {
               <Route path="/settings" render={() => <SettingsContainer />} />
               <Route path="/users" render={() => <UsersContainer />} />
               <Route path="/login" render={() => <LoginContainer />} />
+              </div>
             </div>
           </div>
       );}

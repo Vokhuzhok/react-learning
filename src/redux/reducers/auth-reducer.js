@@ -39,12 +39,12 @@ export const authMe = () => {
 
 export const logIn = (email, password,rememberMe) => {
   return async (dispatch) => {
-   let data = await authApi.postLogin(email, password, rememberMe)
+   const data = await authApi.postLogin(email, password, rememberMe)
       if (data.resultCode === 0) {
         dispatch(authMe());
       }
       else {
-        let message = data.messages.length > 0 ? data.messages[0] : "Some error"
+        const message = data.messages.length > 0 ? data.messages[0] : "Some error"
         dispatch(stopSubmit("login", {_error: message}))
       }
   };
@@ -52,7 +52,7 @@ export const logIn = (email, password,rememberMe) => {
 
 export const logOut = () => {
   return async (dispatch) => {
-   let data = await authApi.deleteLogin()
+   const data = await authApi.deleteLogin()
       if (data.resultCode === 0) {
         dispatch(setUserData(null, null, null, false));
       }

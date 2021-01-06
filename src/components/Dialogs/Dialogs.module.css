@@ -1,10 +1,15 @@
 .dialogs{
-    display: grid;
-    grid-template-columns: 2fr 10fr;
+    display: flex ;
+    flex-direction: row;
+    justify-content: flex-start;
+    /* flex-basis: 100%;  */
+    /* display: grid;
+    grid-template-columns: 2fr 10fr; */
 }
 
-.dialogsItem .dialog{
+.dialogsItem {
     padding: 10px;
+    flex-basis: 20vw;
 }
 
 .dialog a{
@@ -27,6 +32,7 @@
 .messages{
    /*display: flex;
     flex-direction: column;*/
+    flex-basis: 70vw;
     border-style: solid;
     border-radius: 10px;
     border-width: 1px;

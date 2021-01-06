@@ -73,14 +73,21 @@ const ProfileMain = (props) => {
           </div>
           <div className={s.drPole}>
             <dir className={s.jobHeader}>About job:</dir>
-            <dir className={s.image}>
+            <div className={s.image}>
               Looking for a job:{" "}
               {props.profile.lookingForAJob === true ? (
-                <img src={yes} />
+                <img src={yes} alt="" />
               ) : (
-                <img src={no} />
+                <img src={no} alt="" />
               )}
-            </dir>
+            </div>
+                {props.profile.lookingForAJob && 
+                <div>
+                  My skills:
+                  <div>
+                    {props.profile.lookingForAJobDescription}
+                  </div>
+                </div>}
           </div>
         </div>
       </div>
