@@ -1,5 +1,4 @@
 .header{
-    /* grid-area: h; */
     background-color: rgb(66, 155, 206);
   }
 
@@ -7,7 +6,7 @@
     position:absolute;
     right: 1vw;
     width: 30px;
-    padding: 5px;
+    padding: 0.5vh;
   }
   
 .header div {

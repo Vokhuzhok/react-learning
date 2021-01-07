@@ -1,9 +1,6 @@
-.userPhoto img {
-   
-}
-
 .profileWrapper{
     display: flex;
+    flex-flow: wrap;
 }
 .leftBox{
     flex-direction: column;

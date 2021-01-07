@@ -5,13 +5,13 @@ import { NavLink } from "react-router-dom";
 
 const User = (props) => {
   return props.users.map((ue) => (
-    <div key={ue.id} className={s.users}>
-      <div className={s.left}>
+    <div key={ue.id} className={s.user}>
+      <div className={s.leftBox}>
         <div className={s.ava}>
           <NavLink to={"profile/" + ue.id}>
             <img
               src={ue.photos.small != null ? ue.photos.small : noUserPhoto}
-            />
+            alt="" />
           </NavLink>
         </div>
         <div>{ue.name}</div>
@@ -35,8 +35,8 @@ const User = (props) => {
           )}
         </div>
       </div>
-      <div className={s.center}>
-        <div className={s.status}>
+      <div className={s.status}>
+        <div>
           {ue.status != null ? ue.status : "No status"}
         </div>
       </div>

@@ -1,22 +1,17 @@
 .app-wrapper{
-  margin: 0 auto;
-  width: 100%;
-  /* display: flex;
-  flex-direction: row; */
-  /* grid-template-areas: 
-  "h h"
-  "n m";
-  grid-template-rows: 60px 1fr;
-  grid-template-columns: 2fr 10fr; */
+  display: flex;
+  flex-direction: column;
+  /* margin: 0 auto; */
+  flex-basis: 100vw;
+  
 }
 
 .app-wrapper-navi{
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  /* grid-area: m; */
-  /* flex-direction: row; */
   background-color: rgb(247, 255, 255);
+  flex-basis: 10vw;
 }
 
 .app-wrapper-content{

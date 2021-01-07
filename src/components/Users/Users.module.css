@@ -1,25 +1,26 @@
-.users{
-    display: grid;
-    grid-template-areas: "l c r" ;
-    grid-template-columns: 1fr 3fr 1fr;
+.user{
+    display: flex;
+    flex-flow: wrap;
     border-style: solid;
     border-width: 1px;
     border-radius: 5px;
-    margin: 2px;
+    margin: 0.3vh;
+    cursor:default
 }
 
-.left {
-    grid-area: l;
+.leftBox{
+    flex-basis: 10vw;
 }
 
-.center {
-    grid-area: c;
+.status {
+    flex-basis: 50vw;
+    flex-shrink: 1;
+    flex-grow: 1;
 }
 
 .right {
-    grid-area: r;
-
-
+    text-align: right;
+    flex-basis: 21vw;
 }
 
 .ava img {
@@ -34,9 +35,6 @@
 }
 
 .pagesNumber {
-    /* overflow:scroll;
-    width: 800px;
-    height: 50px; */
     display: flex;
     flex-direction: row;
     overflow-x: auto;
@@ -54,4 +52,8 @@
     display:block;
     margin: auto;
     
+}
+
+.button button {
+    cursor: pointer;
 }
