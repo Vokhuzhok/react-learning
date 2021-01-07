@@ -12,34 +12,38 @@ const ProfileMain = (props) => {
   }
 
   return (
-    <div className={s.mainpole}>
-      <div className={s.gridPole}>
-        <div className={s.leftPole}>
-          <div className={s.userPhoto}>
-            <div>
-              My status: <ProfileStatus
+    <div className={s.profileWrapper}>
+      <div className={s.leftBox}>
+        <div>
+          <div className={s.status}>
+            <b>My status:</b>{" "}
+            <ProfileStatus 
               userId={props.profile.userId}
-              authId={props.authId} 
-              status={props.status} 
-              updateUserStatus={props.updateUserStatus}/>
-            </div>
-            <img
-              src={
-                props.profile.photos.large != null
-                  ? props.profile.photos.large
-                  : noUserPhoto
-              }
-            alt ="Sorry"
+              authId={props.authId}
+              status={props.status}
+              updateUserStatus={props.updateUserStatus}
             />
           </div>
+          <img className={s.photo}
+            src={
+              props.profile.photos.large != null
+                ? props.profile.photos.large
+                : noUserPhoto
+            }
+            alt=""
+          />
           <div className={s.fullName}>{props.profile.fullName}</div>
         </div>
-        <div className={s.rightPole}>
-          <div className={s.upPole}>
-            <div className={s.aboutMe}>About me : {props.profile.aboutMe}</div>
+      </div>
+      <div className={s.rightBox}>
+        <div className={s.aboutMe}>
+          <div>
+            <b>About me:</b> {props.profile.aboutMe}
           </div>
-          <div className={s.dlPole}>
-            <div className={s.contactsHeader}>Contacts:</div>
+        </div>
+        <div className={s.bottomBox}>
+          <div className={s.contacts}>
+            <b>Contacts:</b>
             <div>
               Facebook:{" "}
               {props.profile.contacts.facebook != null
@@ -71,8 +75,8 @@ const ProfileMain = (props) => {
                 : "No contact"}
             </div>
           </div>
-          <div className={s.drPole}>
-            <dir className={s.jobHeader}>About job:</dir>
+          <div className={s.jobBox}>
+            <b>About job:</b>
             <div className={s.image}>
               Looking for a job:{" "}
               {props.profile.lookingForAJob === true ? (
@@ -81,13 +85,12 @@ const ProfileMain = (props) => {
                 <img src={no} alt="" />
               )}
             </div>
-                {props.profile.lookingForAJob && 
-                <div>
-                  My skills:
-                  <div>
-                    {props.profile.lookingForAJobDescription}
-                  </div>
-                </div>}
+            {props.profile.lookingForAJob && (
+              <div>
+                <b>My skills:</b>
+                <div>{props.profile.lookingForAJobDescription}</div>
+              </div>
+            )}
           </div>
         </div>
       </div>

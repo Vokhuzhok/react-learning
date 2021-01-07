@@ -1,6 +1,30 @@
 .userPhoto img {
-    padding-left: 3px;
-    padding-right: 3px;
+   
+}
+
+.profileWrapper{
+    display: flex;
+}
+.leftBox{
+    flex-direction: column;
+    flex-basis: 25vw;
+}
+
+.status {
+    text-align: center;
+    cursor: default;
+}
+
+.statusText {
+    cursor: pointer;
+}
+.statusText :hover {
+    color: rgb(223, 175, 245);
+}
+
+.photo{
+    padding-left: 1vw;
+    padding-right: 1vw;
     width: 300px;
     height: 300px;
     border-radius: 3%;
@@ -8,39 +32,45 @@
 
 .fullName {
     text-align: center;
+    cursor: default;
 }
 
-.gridPole {
-    display: grid;
-    grid-template-areas: "l r";
-    grid-template-columns: 1fr 3fr;
+.rightBox{
+    flex-direction: row;
+    flex-basis: 57vw;
+    cursor: default;
 }
 
-.leftPole {
-    grid-area: l;
+.aboutMe {
+    text-align: center;
 }
 
-.rightPole {
-    grid-area: r;
-    display: grid;
-    grid-template-areas: 
-    "u u"
-    "dl dr";
-    grid-template-columns: 3fr 1fr;
-    grid-template-rows: 1fr 4fr;
+.bottomBox {
+    display: flex;
+    flex-direction: row;
 }
 
-.upPole {
-    grid-area: u;
+.contacts{
+    flex-basis: 40vw;
 }
 
-.dlPole {
-    grid-area: dl;
+.contacts div {
+    padding-left: 2vw;
+    padding-top: 1vh;
 }
 
-.drPole {
-    grid-area: dr;
+.jobBox{
+    flex-basis: 20vw;
 }
+
+.jobBox div {
+    padding-bottom: 1vh;
+}
+
+/* .fullName {
+    text-align: center;
+}
+
 
 .aboutMe {
     text-align: center;
@@ -52,13 +82,13 @@
 
 .jobHeader {
     text-align: center;
-}
+} */
 
 .image img {
     width: 10px;
     height: 10px;
 }
-
+/* 
 .status {
     cursor: pointer
 }
@@ -66,4 +96,4 @@
 .mainpole {
     padding: 3px;
     background-color: rgb(224, 243, 241);
-}
+} */

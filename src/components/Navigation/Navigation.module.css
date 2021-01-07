@@ -1,5 +1,5 @@
   .nav{
-    grid-area: n;
+    flex-basis: 14%;
     background-color: teal;
     padding: 25px;
     height: 50vh;
