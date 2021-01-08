@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { follow, unfollow, uGet } from "../../redux/reducers/users-reducer";
 import Users from "./Users";
-import Preloader from "../common/Preloader";
 import {
   getIsFetching,
   getPageSize,

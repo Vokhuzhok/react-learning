@@ -3,6 +3,7 @@ import MyPostsContainer from "./MyPosts/MyPostsContainer";
 import ProfileMain from "./ProfileMain/ProfileMain";
 
 const Profile = (props) => {
+  const vid = window.screen.availWidth + "*" + window.screen.availHeight
   return (
     <div>
       <ProfileMain 
@@ -11,6 +12,7 @@ const Profile = (props) => {
       status={props.status} 
       updateUserStatus={props.updateUserStatus} />
       <MyPostsContainer />
+      {vid}
     </div>
   );
 };

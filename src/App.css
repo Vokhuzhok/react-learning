@@ -1,7 +1,6 @@
 .app-wrapper{
   display: flex;
   flex-direction: column;
-  /* margin: 0 auto; */
   flex-basis: 100vw;
   
 }

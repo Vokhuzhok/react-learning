@@ -11,7 +11,6 @@ import Music from "./components/Music/Music";
 import Navigation from "./components/Navigation/Navigation";
 import News from "./components/News/News";
 import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
-import Settings from "./components/Settings/Settings";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
 import {getInit} from "./redux/reducers/app-reducer";

@@ -21,14 +21,3 @@ const Paginator = (props) => {
 };
 
 export default Paginator;
-
-
-{/* <div>
-    {props.items.map((i) => {
-        return (
-            <div>
-
-            </div>
-        )
-    })}
-</div> */}
