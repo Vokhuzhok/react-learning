@@ -5,26 +5,27 @@ import s from "./ProfileMain.module.css";
 import yes from "../../../assest/images/galochka.png";
 import no from "../../../assest/images/krestik.jpg";
 import ProfileStatus from "./ProfileStatus";
+import ProfileContacts from "./ProfileContacts";
 
 const ProfileMain = (props) => {
   if (!props.profile) {
     return <Preloader />;
   }
-
   return (
     <div className={s.profileWrapper}>
       <div className={s.leftBox}>
         <div>
           <div className={s.status}>
             <b>My status:</b>{" "}
-            <ProfileStatus 
+            <ProfileStatus
               userId={props.profile.userId}
               authId={props.authId}
               status={props.status}
               updateUserStatus={props.updateUserStatus}
             />
           </div>
-          <img className={s.photo}
+          <img
+            className={s.photo}
             src={
               props.profile.photos.large != null
                 ? props.profile.photos.large
@@ -44,36 +45,15 @@ const ProfileMain = (props) => {
         <div className={s.bottomBox}>
           <div className={s.contacts}>
             <b>Contacts:</b>
-            <div>
-              Facebook:{" "}
-              {props.profile.contacts.facebook != null
-                ? props.profile.contacts.facebook
-                : "No contact"}
-            </div>
-            <div>
-              VK:{" "}
-              {props.profile.contacts.vk != null
-                ? props.profile.contacts.vk
-                : "No contact"}
-            </div>
-            <div>
-              YouTube:{" "}
-              {props.profile.contacts.youtube != null
-                ? props.profile.contacts.youtube
-                : "No contact"}
-            </div>
-            <div>
-              Instagram:{" "}
-              {props.profile.contacts.instagram != null
-                ? props.profile.contacts.instagram
-                : "No contact"}
-            </div>
-            <div>
-              GitHub:{" "}
-              {props.profile.contacts.github != null
-                ? props.profile.contacts.github
-                : "No contact"}
-            </div>
+            {Object.keys(props.profile.contacts).map((key) => {
+              return (
+                <ProfileContacts
+                  key={key}
+                  title={key}
+                  value={props.profile.contacts[key]}
+                />
+              );
+            })}
           </div>
           <div className={s.jobBox}>
             <b>About job:</b>

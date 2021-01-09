@@ -4,10 +4,11 @@ import { requred } from "../../utils/validators/validators";
 import { Input, Textarea } from "../common/FormControls";
 import s from "../common/FormControls.module.css";
 import style from "./Settings.module.css";
+import SettingsContacts from "./SettingsContact";
 
-const SettingsForm = ({ handleSubmit, error }) => {
+const SettingsForm = ({ handleSubmit, error, initialValues }) => {
   return (
-    <div className = {style.form}>
+    <div className={style.form}>
       <form onSubmit={handleSubmit}>
         <div>
           About me:
@@ -16,38 +17,15 @@ const SettingsForm = ({ handleSubmit, error }) => {
         <div>
           Your contacts:
           <div className={style.contacts}>
-            <div>
-              skype:
-              <Field name="contacts.skype" component={Input} />
-            </div>
-            <div>
-              vk:
-              <Field name="contacts.vk" component={Input} />
-            </div>
-            <div>
-              facebook:
-              <Field name="contacts.facebook" component={Input} />
-            </div>
-            <div>
-              icq:
-              <Field name="contacts.icq" component={Input} />
-            </div>
-            <div>
-              googlePlus:
-              <Field name="contacts.googlePlus" component={Input} />
-            </div>
-            <div>
-              twitter:
-              <Field name="contacts.twitter" component={Input} />
-            </div>
-            <div>
-              instagram:
-              <Field name="contacts.instagram" component={Input} />
-            </div>
-            <div>
-              whatsApp:
-              <Field name="contacts.whatsApp" component={Input} />
-            </div>
+            {Object.keys(initialValues.contacts).map((key) => {
+              return (
+                <SettingsContacts
+                  key={key}
+                  title={key}
+                  initialValues={initialValues.contacts[key]}
+                />
+              );
+            })}
           </div>
         </div>
         <div>

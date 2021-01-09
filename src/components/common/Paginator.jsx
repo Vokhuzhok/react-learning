@@ -7,6 +7,7 @@ const Paginator = (props) => {
       {props.items.map((p) => {
         return (
           <button
+            key={p}
             className={props.currentItem === p ? s.selectedPage : undefined}
             onClick={() => {
               props.onItemChanged(p);
