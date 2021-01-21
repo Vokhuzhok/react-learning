@@ -9,18 +9,18 @@
 }
 
 .leftBox{
-    flex-basis: 10vw;
+    /* flex-basis: 10vw; */
 }
 
 .status {
-    flex-basis: 50vw;
+    /* flex-basis: 50vw; */
     flex-shrink: 1;
     flex-grow: 1;
 }
 
 .right {
     text-align: right;
-    flex-basis: 21vw;
+    /* flex-basis: 21vw; */
 }
 
 .ava img {
@@ -34,7 +34,7 @@
     border: 2px solid;
 }
 
-.pagesNumber {
+/* .pagesNumber {
     display: flex;
     flex-direction: row;
     overflow-x: auto;
@@ -46,7 +46,7 @@
     margin: 1px;
     border-left: 1px solid;
     border-right: 1px solid;
-}
+} */
 
 .preloader img {
     display:block;

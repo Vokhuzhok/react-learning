@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-import {Route, withRouter } from "react-router-dom";
+import { Route, withRouter } from "react-router-dom";
 import { compose } from "redux";
 import "./App.css";
 import Preloader from "./components/common/Preloader";
@@ -13,7 +13,7 @@ import News from "./components/News/News";
 import ProfileContainer from "./components/Profile/ProfileMain/ProfileContainer";
 import SettingsContainer from "./components/Settings/SettingsContainer";
 import UsersContainer from "./components/Users/UsersContainer";
-import {getInit} from "./redux/reducers/app-reducer";
+import { getInit } from "./redux/reducers/app-reducer";
 import { getAuthCheck, getInitialised } from "./redux/selectors/authSelector";
 
 // class App extends React.Component {
@@ -22,7 +22,7 @@ import { getAuthCheck, getInitialised } from "./redux/selectors/authSelector";
 //     this.props.getInit()
 //   }
 
-//   render () { 
+//   render () {
 //     if (!this.props.initialised) {
 //       return <Preloader />
 //     }
@@ -45,35 +45,37 @@ import { getAuthCheck, getInitialised } from "./redux/selectors/authSelector";
 // }
 
 const App = (props) => {
-  if (!props.auth) {props.getInit()};
+  if (!props.auth) {
+    props.getInit();
+  }
   if (!props.initialised) {
-          return <Preloader />
-        }
-  else   { return (
-          <div className="app-wrapper">
-            <HeaderContainer />
-            <div className="app-wrapper-navi">
-            <Navigation />
-            <div className="app-wrapper-content">
-              <Route path="/dialogs" render={() => <DialogsContainer />} />
-              <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
-              <Route path="/news" render={() => <News />} />
-              <Route path="/music" render={() => <Music />} />
-              <Route path="/settings" render={() => <SettingsContainer />} />
-              <Route path="/users" render={() => <UsersContainer />} />
-              <Route path="/login" render={() => <LoginContainer />} />
-              </div>
-            </div>
-          </div>
-      );}
-}
+    return <Preloader />;
+  } else {
+    return (
+      <div>
+        <div>
+          <HeaderContainer />
+        </div>
+        <div>
+          <Navigation />
+        </div>
+        <div className="app-content">
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
+          <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
+          <Route path="/news" render={() => <News />} />
+          <Route path="/music" render={() => <Music />} />
+          <Route path="/settings" render={() => <SettingsContainer />} />
+          <Route path="/users" render={() => <UsersContainer />} />
+          <Route path="/login" render={() => <LoginContainer />} />
+        </div>
+      </div>
+    );
+  }
+};
 
 let mapStateToProps = (state) => ({
   initialised: getInitialised(state),
-  auth: getAuthCheck(state)
-})
+  auth: getAuthCheck(state),
+});
 
-export default compose(
-  connect (mapStateToProps,{getInit}),
-  withRouter
-  ) (App);
+export default compose(connect(mapStateToProps, { getInit }), withRouter)(App);

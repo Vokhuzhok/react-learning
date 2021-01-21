@@ -1,8 +1,11 @@
   .nav{
-    flex-basis: 14%;
     background-color: teal;
-    padding: 25px;
+    width: 9vw;
     height: 50vh;
+    position: fixed;
+    top: 7%;
+    height: 100%;
+    padding-left: 1vw;
   }
 
   .item a{
@@ -17,21 +20,4 @@
 
   .item :hover{
     color:rgb(223, 175, 245);
-  }
-
-  .friends{
-    color:whitesmoke;
-    padding-bottom: 10px;
-    padding-top: 30px;
-    text-align: center;
-    font-size: 25px;
-  }
-
-  .friends a{
-    text-decoration: none;
-    color:whitesmoke;
-  }
-
-  .friends a.activeFriend{
-    color: darkblue;
   }

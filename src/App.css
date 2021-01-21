@@ -1,23 +1,7 @@
-.app-wrapper{
-  display: flex;
-  flex-direction: column;
-  flex-basis: 100vw;
-  
+.app-content {
+    position: relative;
+    z-index: 100;
+    top: 10vh;
+    left:10vw;
+    width: 89vw;
 }
-
-.app-wrapper-navi{
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  background-color: rgb(247, 255, 255);
-  flex-basis: 10vw;
-}
-
-.app-wrapper-content{
-  flex-basis: 90vw;
-}
-
-
-
-
-
